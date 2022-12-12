@@ -1,8 +1,0 @@
-{
-  "scripts": {
-    "schema": "npx ts-json-schema-generator --path ./types.ts --type Resume > json-schema.json"
-  },
-  "dependencies": {
-    "ts-json-schema-generator": "^1.1.2"
-  }
-}
