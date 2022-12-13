@@ -15,22 +15,19 @@ export type Metadata = {
   defaultLanguage: string;
 };
 
+export type Contact = {
+  mobile: Str;
+  email: Str;
+  address: Partial<Address>;
+}
+
 export type Subject = {
   firstName: Str;
   middleName?: Str;
   lastName: Str;
   title: Str;
-  contact: {
-    mobile: Str;
-    email: Str;
-    address: Partial<Address>;
-  };
-  company?: {
-    name: Str;
-    url?: Str;
-    abn?: Str;
-    acn?: Str;
-  };
+  contact: Contact;
+  company?: Company;
   links?: Link[];
 };
 
@@ -65,6 +62,8 @@ export type Link = {
 export type Company = {
   name: Str;
   url: Str;
+  abn?: Str;
+  acn?: Str;
   address: Partial<Address>;
   logos?: { [key in ImageSize]?: Image };
 };
