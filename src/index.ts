@@ -106,7 +106,7 @@ export type YearMonth = {
 
 export type Str = string | TypedString;
 
-interface TypedString {
+export type TypedString {
   text: string;
   language: SupportedLanguages;
 }
