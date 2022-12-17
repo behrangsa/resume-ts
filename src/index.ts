@@ -106,7 +106,7 @@ export type YearMonth = {
 
 export type Str = string | TypedString;
 
-export type TypedString {
+export type TypedString = {
   text: string;
   language: SupportedLanguages;
 }
