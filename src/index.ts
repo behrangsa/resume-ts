@@ -1,59 +1,55 @@
 export type Resume = {
   metadata: Metadata;
   subject: Subject;
-  workExperience: WorkExperience[];
-  education: Education[];
-  certifications?: Certification[];
-  publications?: Publication[];
+  workExperience: WorkExperienceItem[];
+  education: EducationItem[];
+  certifications: CertificationItem[];
+  publications: PublicationItem[];
 };
 
-export type Certification = {};
+export type CertificationItem = {};
 
-export type Publication = {};
+export type PublicationItem = {};
+
+export type SupportedLanguages = "asciidoc" | "markdown" | "plain";
 
 export type Metadata = {
-  defaultLanguage: string;
+  defaultLanguage: SupportedLanguages;
 };
 
 export type Contact = {
   mobile: Str;
   email: Str;
   address: Partial<Address>;
-}
+};
 
 export type Subject = {
-  firstName: Str;
-  middleName?: Str;
-  lastName: Str;
   title: Str;
+  firstName: Str;
+  lastName: Str;
+  about: Str;
   contact: Contact;
-  company?: Company;
-  links?: Link[];
+  company: Company;
+  links: LinkItem[];
 };
 
-export type WorkExperience = {
+export type WorkExperienceItem = {
+  role: Str;
+  summary: Str;
   company: Company;
   period: Period;
-  summary: Str;
-  links?: Link[];
-  technologies?: Technology[];
+  links: LinkItem[];
+  technologies: TechnologyItem[];
 };
 
-export type Education = {
+export type EducationItem = {
   institution: Str;
   degree: Str;
   period: Period;
-  location?: Partial<Address>;
+  address: Partial<Address>;
 };
 
-export type Str =
-  | string
-  | {
-      text: string;
-      language?: "markdown" | "asciidoc";
-    };
-
-export type Link = {
+export type LinkItem = {
   rel: Str;
   name: Str;
   address: Str;
@@ -62,10 +58,10 @@ export type Link = {
 export type Company = {
   name: Str;
   url: Str;
-  abn?: Str;
-  acn?: Str;
+  abn: Str;
+  acn: Str;
   address: Partial<Address>;
-  logos?: { [key in ImageSize]?: Image };
+  logo: Image;
 };
 
 export type Period = {
@@ -73,12 +69,12 @@ export type Period = {
   endDate: YearMonth | "current";
 };
 
-export type Technology = {
+export type TechnologyItem = {
   name: Str;
 
-  subs?: Technology[];
+  subs?: TechnologyItem[];
 
-  links?: Link[];
+  links?: LinkItem[];
 };
 
 export type Address = {
@@ -92,7 +88,7 @@ export type ImageSize = "Small" | "Medium" | "Large" | "FreeSize";
 
 export type DataUrlImage = {
   mimeType: Str;
-  encoding?: Str;
+  encoding: Str;
   data: Str;
 };
 
@@ -104,6 +100,13 @@ export type UrlImage = {
 export type Image = DataUrlImage | UrlImage;
 
 export type YearMonth = {
-  year: number;
-  month: number;
+  year: string;
+  month: string;
 };
+
+export type Str = string | TypedString;
+
+interface TypedString {
+  text: string;
+  language: SupportedLanguages;
+}

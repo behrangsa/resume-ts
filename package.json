@@ -9,7 +9,7 @@
     "type": "git",
     "url": "https://github.com/behrangsa/resume-ts"
   },
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Resume as Code",
   "dependencies": {
     "@tsconfig/node16-strictest-esm": "^1.0.3"
