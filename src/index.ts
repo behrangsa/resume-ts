@@ -58,8 +58,8 @@ export type LinkItem = {
 export type Company = {
   name: Str;
   url: Str;
-  abn: Str;
-  acn: Str;
+  abn?: Str;
+  acn?: Str;
   address: Partial<Address>;
   logo: Image;
 };
