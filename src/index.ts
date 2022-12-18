@@ -1,112 +1,112 @@
-export type Resume = {
-  metadata: Metadata;
-  subject: Subject;
-  workExperience: WorkExperienceItem[];
-  education: EducationItem[];
-  certifications: CertificationItem[];
-  publications: PublicationItem[];
+export type TResume = {
+  metadata: TMetadata;
+  subject: TSubject;
+  workExperience: TWorkExperience[];
+  educationHistory: TEducationHistory[];
+  certifications: TCertification[];
+  publications: TPublication[];
 };
 
-export type CertificationItem = {};
+export type TCertification = {};
 
-export type PublicationItem = {};
+export type TPublication = {};
 
-export type SupportedLanguages = "asciidoc" | "markdown" | "plain";
+export type TSupportedLanguages = "asciidoc" | "markdown" | "plain";
 
-export type Metadata = {
-  defaultLanguage: SupportedLanguages;
+export type TMetadata = {
+  defaultLanguage: TSupportedLanguages;
 };
 
-export type Contact = {
-  mobile: Str;
-  email: Str;
-  address: Partial<Address>;
+export type TContact = {
+  mobile: TStr;
+  email: TStr;
+  address: Partial<TAddress>;
 };
 
-export type Subject = {
-  title: Str;
-  firstName: Str;
-  lastName: Str;
-  about: Str;
-  contact: Contact;
-  company: Company;
-  links: LinkItem[];
+export type TSubject = {
+  title: TStr;
+  firstName: TStr;
+  lastName: TStr;
+  about: TStr;
+  contact: TContact;
+  company: TCompany;
+  links: TLink[];
 };
 
-export type WorkExperienceItem = {
-  role: Str;
-  summary: Str;
-  company: Company;
-  period: Period;
-  links: LinkItem[];
-  technologies: TechnologyItem[];
+export type TWorkExperience = {
+  role: TStr;
+  summary: TStr;
+  company: TCompany;
+  period: TPeriod;
+  links: TLink[];
+  technologies: TTechnology[];
 };
 
-export type EducationItem = {
-  institution: Str;
-  degree: Str;
-  period: Period;
-  address: Partial<Address>;
+export type TEducationHistory = {
+  institution: TStr;
+  degree: TStr;
+  period: TPeriod;
+  address: Partial<TAddress>;
 };
 
-export type LinkItem = {
-  rel: Str;
-  name: Str;
-  address: Str;
+export type TLink = {
+  rel: TStr;
+  name: TStr;
+  address: TStr;
 };
 
-export type Company = {
-  name: Str;
-  url: Str;
-  abn?: Str;
-  acn?: Str;
-  address: Partial<Address>;
-  logo: Image;
+export type TCompany = {
+  name: TStr;
+  url: TStr;
+  abn?: TStr;
+  acn?: TStr;
+  address: Partial<TAddress>;
+  logo: TImage;
 };
 
-export type Period = {
-  startDate: YearMonth;
-  endDate: YearMonth | "current";
+export type TPeriod = {
+  startDate: TYearMonth;
+  endDate: TYearMonth | "current";
 };
 
-export type TechnologyItem = {
-  name: Str;
+export type TTechnology = {
+  name: TStr;
 
-  subs?: TechnologyItem[];
+  subs?: TTechnology[];
 
-  links?: LinkItem[];
+  links?: TLink[];
 };
 
-export type Address = {
-  city: Str;
-  state: Str;
-  postcode: Str;
-  country: Str;
+export type TAddress = {
+  city: TStr;
+  state: TStr;
+  postcode: TStr;
+  country: TStr;
 };
 
-export type ImageSize = "Small" | "Medium" | "Large" | "FreeSize";
+export type TImageSize = "Small" | "Medium" | "Large" | "FreeSize";
 
-export type DataUrlImage = {
-  mimeType: Str;
-  encoding: Str;
-  data: Str;
+export type TDataUrlImage = {
+  mimeType: TStr;
+  encoding: TStr;
+  data: TStr;
 };
 
-export type UrlImage = {
-  mimeType: Str;
-  url: Str;
+export type TUrlImage = {
+  mimeType: TStr;
+  url: TStr;
 };
 
-export type Image = DataUrlImage | UrlImage;
+export type TImage = TDataUrlImage | TUrlImage;
 
-export type YearMonth = {
+export type TYearMonth = {
   year: string;
   month: string;
 };
 
-export type Str = string | TypedString;
+export type TStr = string | TTypedString;
 
-export type TypedString = {
+export type TTypedString = {
   text: string;
-  language: SupportedLanguages;
+  language: TSupportedLanguages;
 }
